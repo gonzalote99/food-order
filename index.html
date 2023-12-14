@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="styles.css">
+ 
+  <title>food order</title>
+</head>
+<body class="bg-red-[#E5E5E5] font-mainFont">
+  <header class="sticky top-0 bg-white">
+    <div class="container mx-auto">
+       <nav class="flex justify-between items-center my-4 p-4">
+         <img src="https://raw.githubusercontent.com/birkaany/food-order-page/main/assets/img/logo.png" alt="" class="w-24 md:w-36">
+         <ul class="flex space-x-6">
+          <li class="text-th-red-500"><a href="/">Home</a></li>
+          <li class="hover:text-th-red-500"><a href="#">Menu</a></li>
+          <li class="hover:text-th-red-500"><a href="#">Promo</a></li>
+         </ul>
+         <div class="relative">
+           <button id="cartBtn" class="w-10 h-10 bg-th-red-500 rounded-full p2">
+            <div id="cartCounter" class="absolute -top-2 -left-2 bg-gray-200 rounded-full w-5 h-5 flex justify-center items-center">
+             </div>
+             <img src="https://raw.githubusercontent.com/birkaany/food-order-page/main/assets/icons/shopping-cart.png" alt="" />
+           </button>
+           <div id="cart" class="w-72 absolute right-0 toggle-menu transition-opacity duration-500 grid grid-rows-[auto_1fr] border bg-white border-[#bdbdbd] rounded-[30px]">
+            <div id="cart-items" class="">
+               
+            </div>
+            <div class="cart-total p-6 text-center border-1-[#bdbdbd]">
+              <h2>cart total</h2>
+              <p id="cart-total" class="text-3xl text-th-green-400"></p>
+              <button id="paymentBtn" disabled class="font-medium text-sm bg-gray-400 text-white uppercase px-6 py-2 rounded-3xl mt-5">proceed to payment</button>
+            </div>
+           </div>
+
+         </div>
+
+       </nav>
+    </div>
+  </header>
+  <div id="hero-section" class="w-full h-[300px] flex items-center bg-no-repeat bg-contain bg-right bg-[url('../assets/img/margherita-pizza-hero.png')] sm:h-[500px] 2x1:h-[700px]">
+   <div class="container mx-auto px-4">
+      <h1 class="font-bold text-6xl leading-normal text-th-green-800 2xl:text-7xl select-none">friday pizza
+      </h1>
+      <p class="font-medium text-4xl text-th-green-800 2xl:text-5xl select-none">enjoy delicious</p>
+      
+   </div>
+  </div>
+
+  <section class="menu my-16">
+     <div class="container mx-auto ">
+      <h2 class="text-center text-th-green-800 font-semibold text-4xl">recommended menu</h2>
+      <ul id="menu-items" class="menu-items flex flex-col flex-wrap gap-5 justify-center items-center mt-10 sm:flex-row ">
+      
+      </ul>
+     </div>
+  </section>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <section id="paymentModal" class="hidden justify-center bg-gray-600 bg-opacity-50 fixed top-0 w-full h-full">
+ <div class="container flex justify-center items-center">
+ <div id="modal" class="p-10 bg-white rounded-lg relative">
+ <button id="paymentCloseBtn" class="absolute w-10 h-10 leading-none right-0 top-0 hover:bg-gray-100 duration-200 rounded-tr-md">
+ x
+ </button> 
+ <form id="paymentForm" class="flex flex-col gap-5">
+ <div class="form-group flex flex-col gap-2">
+ <label for="email" class="text-sm">email</label>
+ <input id="email" type="email" placeholder="email@fd" class="h-10 border rounded-lg px-3 py-1 text-sm" required > 
+ </div>
+ <div class="form-group flex flex-col gap-2">
+  <label for="name" class="text-sm">name</label>
+  <input id="name" type="name" placeholder="name" class="h-10 border rounded-lg px-3 py-1 text-sm" required > 
+  </div>
+  <div class="form-group flex flex-col gap-2">
+    <label for="cardNumber" class="text-sm">card number</label>
+    <input id="cardNumber" type="text" placeholder="00000" class="h-10 border rounded-lg px-3 py-1 text-sm" maxlength="19" required > 
+    <div class="max-w-md flex gap-2">
+      <input id="cardExpiration" type="number" placeholder="MM" class="w-1/4 h-10 border rounded-lg px-3 py-1 text-sm" min="1" max="12" required>
+      <input id="cardExpiration" type="number" placeholder="YY" class="w-1/4 h-10 border rounded-lg px-3 py-1 text-sm" min="1" max="12" required>
+      <input id="cardExpiration" type="number" placeholder="CVC" class="w-1/4 h-10 border rounded-lg px-3 py-1 text-sm" min="1" max="12" required>
+    </div>
+    </div>
+    <div class="form-group flex flex-col gap-2">
+     <button id="submit" type="submit" class="h-10 border rounded-lg px-3 py-1 text-sm bg-th-red-500 text-white hover:bg-gray-600 transition-all duration-200 ">payment
+      
+     </button>
+    </div>
+ </form>
+ <h3 id="statusMessage" class="text-xl text-center p-8"></h3>
+ </div>
+ </div>
+  </section>
+<script src="script.js" type="module"></script>
+</body>
+</html>
